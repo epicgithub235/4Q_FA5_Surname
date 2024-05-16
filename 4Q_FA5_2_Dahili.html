@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="text" id="text">
+        <input type="button" value="Add" onclick="arrayAdd()">
+        <input type="button" value="Remove" onclick="arrayRemove()">
+    </form>
+    <p id="list"></p>
+    <script>
+        counter = -1
+        let names = ['','','','','','',''];
+        function arrayAdd(){
+            counter++
+            if (counter==7){
+                newname = document.getElementById("text").value;
+                names.splice(0,1)
+                names.splice(6,0,newname)
+                counter--
+            }
+            else {
+                names[counter] = document.getElementById("text").value;
+            }
+            document.getElementById('list').innerHTML = names[0]+' '+names[1]+' '+names[2]+' '+names[3]+' '+names[4]+' '+names[5]+' '+names[6]
+        }
+        function arrayRemove(){
+            names.splice(6,1,'')
+            counter--
+            document.getElementById('list').innerHTML = names[0]+' '+names[1]+' '+names[2]+' '+names[3]+' '+names[4]+' '+names[5]+' '+names[6]
+        }
+    </script>
+</body>
+</html>
